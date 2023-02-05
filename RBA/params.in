@@ -16,7 +16,7 @@ INPUT_DIR = data
 # located in INPUT_DIR (or provide a path relative to INPUT_DIR).
 ##############################################################################
 
-SBML_FILE = iLC920.sbml
+SBML_FILE = iLC858.sbml
 
 ##############################################################################
 # ORGANISM_ID
