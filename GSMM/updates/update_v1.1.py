@@ -249,7 +249,26 @@ model.reactions.get_by_id("rxn01211_c").gene_reaction_rule = "PN96_09125"
 model.reactions.get_by_id("rxn05557_c").gene_reaction_rule = "PN96_16000"
 model.reactions.get_by_id("rxn00068_c").gene_reaction_rule = "PN96_13805"
 
+######################
+# Peptidoglycan synthesis
+# This reaction was mostly added for compatability with RBA modelling
+# #######################
 
+cpd15511 = Metabolite(
+    'cpd15511_c',
+    formula='C80H124N16O42',
+    name='two linked disacharide pentapeptide murein units (uncrosslinked, middle of chain), 4',
+    compartment='c')
+rxn08957 = Reaction("rxn08957_c")
+rxn08957.add_metabolites({
+    model.metabolites.get_by_id("cpd03495_c"): -2, # undecaprenyl diphosphate carrier + murein pentapeptide
+    model.metabolites.get_by_id("cpd02229_c"): 2, # undecaprenyl diphosphate carrier
+    cpd15511: 1, # two linked murein units
+})
+rxn08957.bounds = (0, 1000)
+rxn08957.name = "murein polymerizing transglycosylase"
+rxn08957.gene_reaction_rule = "PN96_00770 or PN96_02030 or PN96_02370 or PN96_10195"
+model.add_reactions([rxn08957])
 
 
 # Write
