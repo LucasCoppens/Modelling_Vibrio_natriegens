@@ -270,6 +270,11 @@ rxn08957.name = "murein polymerizing transglycosylase"
 rxn08957.gene_reaction_rule = "PN96_00770 or PN96_02030 or PN96_02370 or PN96_10195"
 model.add_reactions([rxn08957])
 
+######################
+# Clarification
+# #######################
+
+model.reactions.get_by_id("EX_cpd02701_c").name = model.reactions.get_by_id("EX_cpd02701_c").name + "(sink required as the destination of this metabolite is not known in bacteria)"
 
 # Write
 cobra.io.write_sbml_model(model, 'iLC858_v1.1.sbml')
