@@ -271,10 +271,16 @@ rxn08957.gene_reaction_rule = "PN96_00770 or PN96_02030 or PN96_02370 or PN96_10
 model.add_reactions([rxn08957])
 
 ######################
+# ATP synthase
+# ####################
+
+model.reactions.get_by_id("rxn10042_c").gene_reaction_rule = "PN96_13385 and PN96_13390 and PN96_13395 and PN96_13400 and PN96_13405 and PN96_13310 and PN96_13315 and PN96_13320 and PN96_13325"
+
+######################
 # Clarification
-# #######################
+# ####################
 
 model.reactions.get_by_id("EX_cpd02701_c").name = model.reactions.get_by_id("EX_cpd02701_c").name + "(sink required as the destination of this metabolite is not known in bacteria)"
 
 # Write
-cobra.io.write_sbml_model(model, 'iLC858_v1.1.sbml')
+# cobra.io.write_sbml_model(model, 'iLC858_v1.1.sbml')
